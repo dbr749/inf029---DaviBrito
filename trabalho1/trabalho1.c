@@ -119,7 +119,7 @@ int q1(char data[])
     }
     str_mes[mes_index] = '\0';
 
-    // separar ano (aceitar 2 ou 4 dígitos, impedir 0 dígitos e overflow)
+    // separar ano (aceitar 2 ou 4 dígitos, impedir 0 dígitos)
     for (i = barra2 + 1; data[i] != '\0'; i++)
     {
         if (data[i] < '0' || data[i] > '9')
@@ -286,13 +286,13 @@ int q4(char *str_texto, char *str_busca, int posicoes[70])
 
     for (int i = 0; str_texto[i] != '\0'; i++)
     {
-        palavra_idx = 0;
+        palavra_idx = 0; // Sempre reinicia o índice da palavra
 
         if (str_busca[palavra_idx] == str_texto[i])
         {
             int j = i;
 
-            while (str_busca[palavra_idx] != '\0' && str_texto[j] != '\0')
+            while (str_busca[palavra_idx] != '\0' && str_texto[j] != '\0') //compara texto com palavra até alguém acabar
             {
                 if (str_busca[palavra_idx] == str_texto[j] && str_busca[palavra_idx + 1] != '\0')
                 {
